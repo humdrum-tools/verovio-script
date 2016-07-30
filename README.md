@@ -28,8 +28,8 @@ You would then place the svg element on the page as you like.
 
 Sample verovio toolkit options:
 
-```json
-{
+```javascript
+var options = {
       inputFormat  : "humdrum",
       adjustPageHeight: 1,
       pageHeight: 6000,
@@ -40,5 +40,10 @@ Sample verovio toolkit options:
 }
 ```
 
-The image height and width can be calculated dynamically as the page layout changes.
+The image height and width can be calculated dynamically as the page layout changes, such as (using jQuery):
+
+```javascript
+options.pageHeight = ($(window).innerHeight() - $('#navber').outerHeight()) / 0.40 - 100;
+options.pageWidth = $(window).innerWidth() / 0.40 - 100;
+```
 
