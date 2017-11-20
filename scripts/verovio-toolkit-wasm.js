@@ -4,6 +4,7 @@ var Module;if(typeof Module==="undefined")Module={};if(!Module.expectedDataFileD
 
 
 var verovio = verovio || {};
+console.log("VEROVIO =", verovio);
 /***************************************************************************************************************************/
 // Proxy the exported c++ methods
 verovio.vrvToolkit = verovio.vrvToolkit || {};
