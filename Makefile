@@ -1,5 +1,5 @@
 
-EMSDK = /Users/craig/git-cloud/emsdk
+EMSDK = /usr/local/e/emsdk
 
 all:
 	(cd ../verovio/emscripten && source $(EMSDK)/emsdk_env.sh && \
