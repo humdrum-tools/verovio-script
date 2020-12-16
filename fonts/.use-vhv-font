@@ -1,0 +1,3 @@
+cp ../../verovio-humdrum-viewer/styles/VerovioText-VHV.sfd VerovioText-1.0.sfd
+#./generate_all.sh
+./generate_woff.sh
