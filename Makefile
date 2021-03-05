@@ -2,7 +2,7 @@
 # EMSDK = /usr/local/e/emsdk
 EMSDK = /Users/craig/git-cloud/emsdk
 
-all: fonts compile unfonts
+all: fonts compile unfonts upload
 
 fonts:
 	(cd ../verovio/fonts; ./.use-vhv-font)
@@ -16,3 +16,6 @@ compile:
 copy:
 	(cd ../verovio/emscripten && cp build/verovio-toolkit-wasm-hum.js ../../verovio-script/scripts/verovio-toolkit-wasm.js && cp build/verovio-toolkit-wasm-hum.js ../../verovio-humdrum-viewer/scripts/local/verovio-toolkit-wasm.js)
 
+update:
+	git commit -am "Update"
+	git push
