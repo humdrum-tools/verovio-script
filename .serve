@@ -1,0 +1,6 @@
+
+
+
+bundle exec jekyll serve --incremental --trace --watch --port 7777
+
+
