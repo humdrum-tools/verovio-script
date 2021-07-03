@@ -117,7 +117,7 @@ console.log("DONE RENDERING SVGB:", svg);
 console.log("GOT HERE XXXYYY");
 			this.page = page;
 			this.humdrumOutput = "";
-			if (data.match(/^\s*[!*]/) {
+			if (data.match(/^\s*[!*]/)) {
 				// Only store Humdrum data if input data is Humdrum data.
 				// This is used to extract intermediate filtered Humdrum
 				// data before it was converted to MEI data.  This function
