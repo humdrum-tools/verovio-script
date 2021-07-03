@@ -89,11 +89,13 @@ function verovioCalls() {
 			page = 1;
 		}
 		cleanopts = cleanOptions(data, opts);
+console.log("CLEAN OPTIONS", cleanopts);
 		this.vrvToolkit.setOptions(cleanopts);
 		this.vrvToolkit.loadData(data);
 		this.pageCount = this.vrvToolkit.getPageCount();
 		if (this.pageCount === 0) {
-			throw (this.vrvToolkit.getLog());
+console.log("PAGECOUNT IS ZERO");
+			throw ("PAGE COUNT IS ZERO:", this.vrvToolkit.getLog());
 		} else {
 			var svg;
 			if (page) {
@@ -106,6 +108,7 @@ function verovioCalls() {
 console.log("OPTIONS FOR RENDERDATA", cleanopts);
 				svg = this.vrvToolkit.renderData(data, cleanopts);
 			};
+console.log("GOT HERE XXXYYY");
 			this.page = page;
 			this.humdrumOutput = this.vrvToolkit.getHumdrum();
 			return svg;
