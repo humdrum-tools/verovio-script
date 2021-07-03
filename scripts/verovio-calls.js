@@ -116,7 +116,15 @@ console.log("DONE RENDERING SVGB:", svg);
 			};
 console.log("GOT HERE XXXYYY");
 			this.page = page;
-			this.humdrumOutput = this.vrvToolkit.getHumdrum();
+			this.humdrumOutput = "";
+			if (data.match(/^\s*[!*]/) {
+				// Only store Humdrum data if input data is Humdrum data.
+				// This is used to extract intermediate filtered Humdrum
+				// data before it was converted to MEI data.  This function
+				// should not be called if input is MEI data (and probably
+				// not MusicXML data either).
+				this.humdrumOutput = this.vrvToolkit.getHumdrum();
+			}
 console.log("HUMDRUM OUTPUT", this.humdrumOutput);
 			return svg;
 		};
