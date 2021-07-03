@@ -83,6 +83,7 @@ function verovioCalls() {
 	//
 
 	this.renderData = function (opts, data, page, force) {
+console.log("GOING TO RENDER DATA =========", data, "PAGE", page);
 		if (!force) this.validate(data);
 		page = page || this.page;
 		if (page == 0) {
