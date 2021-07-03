@@ -83,38 +83,28 @@ function verovioCalls() {
 	//
 
 	this.renderData = function (opts, data, page, force) {
-console.log("GOING TO RENDER DATA =========", data, "PAGE", page);
 		if (!force) this.validate(data);
 		page = page || this.page;
 		if (page == 0) {
 			page = 1;
 		}
 		cleanopts = cleanOptions(data, opts);
-console.log("CLEAN OPTIONS", cleanopts);
 		this.vrvToolkit.setOptions(cleanopts);
 		this.vrvToolkit.loadData(data);
 		this.pageCount = this.vrvToolkit.getPageCount();
-console.log("PAGECOUNT IS ", this.pageCount);
 		if (this.pageCount === 0) {
-console.log("PAGECOUNT IS ZERO");
 			throw ("PAGE COUNT IS ZERO:", this.vrvToolkit.getLog());
 		} else {
-console.log("PAGECOUNT IS NOT ZERO", this.pageCount);
 			let svg;
 			if (page) {
 				if (page > this.pageCount) {
 					page = 1;
 					this.page = 1;
 				}
-console.log("GOING TO RENDER TO SVG FOR PAGE", page);
 				svg = this.vrvToolkit.renderToSVG(page, {});
-console.log("DONE RENDERING SVG:", svg);
 			} else {
-console.log("OPTIONS FOR RENDERDATA", cleanopts);
 				svg = this.vrvToolkit.renderData(data, cleanopts);
-console.log("DONE RENDERING SVGB:", svg);
 			};
-console.log("GOT HERE XXXYYY");
 			this.page = page;
 			this.humdrumOutput = "";
 			if (data.match(/^\s*[!*]/)) {
@@ -125,7 +115,6 @@ console.log("GOT HERE XXXYYY");
 				// not MusicXML data either).
 				this.humdrumOutput = this.vrvToolkit.getHumdrum();
 			}
-console.log("HUMDRUM OUTPUT", this.humdrumOutput);
 			return svg;
 		};
 	};
@@ -321,8 +310,7 @@ console.log("HUMDRUM OUTPUT", this.humdrumOutput);
 		}
 
 		return output;
-		}
-
+	}
 
 };
 
