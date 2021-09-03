@@ -1,6 +1,6 @@
 
 # EMSDK = /usr/local/e/emsdk
-EMSDK = /home/craig/git-cloud/emsdk
+EMSDK = ~/git-cloud/emsdk
 
 all: fonts compile unfonts update
 
