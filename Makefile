@@ -2,7 +2,10 @@
 # EMSDK = /usr/local/e/emsdk
 EMSDK = ~/git-cloud/emsdk
 
-all: fonts compile unfonts update
+all: pull fonts compile unfonts update
+
+pull:
+	git pull
 
 local: fonts compile unfonts
 
