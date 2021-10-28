@@ -237,6 +237,17 @@ function verovioCalls() {
 
 	////////////////////////////
 	//
+	// verovioCalls.renderToTimemap --
+	//
+
+	this.renderToTimemap = function () {
+		return this.vrvToolkit.renderToTimemap();
+	};
+
+
+
+	////////////////////////////
+	//
 	// verovioCalls.getElementsAtTime --
 	//
 

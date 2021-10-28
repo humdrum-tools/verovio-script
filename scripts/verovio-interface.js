@@ -321,6 +321,18 @@ vrvInterface.prototype.renderToMidi = function () {
 
 //////////////////////////////
 //
+// vrvInterface::renderToTimemap --
+//
+
+vrvInterface.prototype.renderToTimemap = function () {
+	var value = this.execute("renderToTimemap", arguments);
+	return value;
+};
+
+
+
+//////////////////////////////
+//
 // vrvInterface::getElementsAtTime --
 //
 
