@@ -49,14 +49,34 @@ function verovioCalls() {
 		}
 		if (opts.from === "musicxml") {
 			checkdata = false;
-		}
-		if (opts.from === "mei") {
+		} else if (opts.from === "mei") {
 			checkdata = false;
-		}
-		if (opts.from === "musicxml-hum") {
+		} else if (opts.from === "musicxml-hum") {
 			checkdata = false;
+		} else if (opts.from === "musedata-hum") {
+			checkdata = false;
+		} else if ((opts.from === "auto") && (type === "humdrum")) {
+			checkdata = true;
 		}
-		if ((opts.from === "auto") && (type === "humdrum")) {
+		if (checkdata) {
+			this.validate(data);
+		}
+
+		this.vrvToolkit.setOptions(opts);
+		this.vrvToolkit.loadData(data);
+		this.pageCount = this.vrvToolkit.getPageCount();
+		switch (type) {
+			case "humdrum":
+				newdata = this.vrvToolkit.getHumdrum();
+				break;
+			case "mei":
+				newdata = this.vrvToolkit.getMEI(0, 1);
+				break;
+		};
+		return newdata;
+	};
+
+		} else if ((opts.from === "auto") && (type === "humdrum")) {
 			checkdata = true;
 		}
 		if (checkdata) {
