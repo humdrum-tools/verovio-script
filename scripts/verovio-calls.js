@@ -76,27 +76,6 @@ function verovioCalls() {
 		return newdata;
 	};
 
-		} else if ((opts.from === "auto") && (type === "humdrum")) {
-			checkdata = true;
-		}
-		if (checkdata) {
-			this.validate(data);
-		}
-
-		this.vrvToolkit.setOptions(opts);
-		this.vrvToolkit.loadData(data);
-		this.pageCount = this.vrvToolkit.getPageCount();
-		switch (type) {
-			case "humdrum":
-				newdata = this.vrvToolkit.getHumdrum();
-				break;
-			case "mei":
-				newdata = this.vrvToolkit.getMEI(0, 1);
-				break;
-		};
-		return newdata;
-	};
-
 
 
 	//////////////////////////////
