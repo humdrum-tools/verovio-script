@@ -98,6 +98,7 @@ function verovioCalls() {
 		if (page == 0) {
 			page = 1;
 		}
+		this.vrvToolkit.resetOptions();
 		cleanopts = cleanOptions(data, opts);
 		this.vrvToolkit.setOptions(cleanopts);
 		this.vrvToolkit.loadData(data);
