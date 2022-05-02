@@ -113,6 +113,7 @@ function verovioCalls() {
 				}
 				svg = this.vrvToolkit.renderToSVG(page, {});
 			} else {
+            this.vrvToolkit.resetOptions();
 				svg = this.vrvToolkit.renderData(data, cleanopts);
 			};
 			this.page = page;
