@@ -271,6 +271,17 @@ vrvInterface.prototype.redoLayout = function (opts, redo, measure) {
 
 //////////////////////////////
 //
+// vrvInterface::renderToTimemap --
+//
+
+vrvInterface.prototype.renderToTimemap = function () {
+	return this.execute("renderToTimemap", arguments);
+};
+
+
+
+//////////////////////////////
+//
 // vrvInterface::renderPage --
 //
 
