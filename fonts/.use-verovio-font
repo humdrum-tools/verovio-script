@@ -1,3 +1,0 @@
-# cp VerovioText-backup/* .
-git checkout ../data
-git checkout .

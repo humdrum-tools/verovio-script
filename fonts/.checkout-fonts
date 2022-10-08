@@ -1,8 +1,0 @@
-git checkout ../data/text/VerovioText-1.0.xml
-git checkout ../data/woff.xml
-git checkout VerovioText-1.0.otf
-git checkout VerovioText-1.0.sfd
-git checkout VerovioText-1.0.svg
-git checkout VerovioText-1.0.ttf
-git checkout VerovioText-1.0.woff
-git checkout vrv-ttf.js
