@@ -16,28 +16,6 @@ For more information about web workers:
 
 self.methods = null;
 
-
-/////////////////////////////
-//
-// WASM installation variable:
-//
-
-self.Module = {
-	onRuntimeInitialized: function() {
-			methods = new verovioCalls();
-			methods.vrvToolkit = new verovio.toolkit();
-			console.log(`Verovio (WASM) ${methods.vrvToolkit.getVersion()} loaded`);
-			postMessage({method: "ready"});
-		// postMessage(["loaded", false, {}]);
-	}
-};
-
-//
-// WASM
-//
-//////////////////////////////
-
-
 {% if site.local == "true" %}
 	importScripts('/scripts/verovio-toolkit-wasm.js');
 	importScripts("/scripts/humdrumValidator.js");
@@ -47,6 +25,36 @@ self.Module = {
 	importScripts("https://verovio-script.humdrum.org/scripts/humdrumValidator.js");
 	importScripts("https://verovio-script.humdrum.org/scripts/verovio-calls.js");
 {% endif %}
+
+
+/////////////////////////////
+//
+// WASM installation variable:
+//
+
+// New method for loading verovio:
+verovio.module.onRuntimeInitialized = () => {
+	methods = new verovioCalls();
+	methods.vrvToolkit = new verovio.toolkit();
+	console.log(`Verovio (WASM) ${methods.vrvToolkit.getVersion()} loaded`);
+	postMessage({method: "ready"});
+};
+
+// Old method for loading verovio:
+// self.Module = {
+// 	onRuntimeInitialized: function() {
+// 			methods = new verovioCalls();
+// 			methods.vrvToolkit = new verovio.toolkit();
+// 			console.log(`Verovio (WASM) ${methods.vrvToolkit.getVersion()} loaded`);
+// 			postMessage({method: "ready"});
+// 	}
+// };
+
+//
+// WASM
+//
+//////////////////////////////
+
 
 
 // force local:
