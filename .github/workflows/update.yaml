@@ -11,14 +11,22 @@ jobs:
 
         steps:
             -
+                name: Build docker image
+                run: docker build -t verovio-script -f Dockerfile .
+            -
                 name: Checkout
                 uses: actions/checkout@v3
                 with:
                   ref: gh-pages
             -
-                name: Test
+                name: Copy wasm
+                run: docker build -t verovio-script -f Dockerfile .
+            -
+                name: Copy wasm
                 run: |
-                    echo "Hello world" > scripts/verovio-toolkit-wasm.js
+                    docker create --name dummy verovio-script
+                    docker cp dummy:/app/verovio-toolkit-wasm.js scripts/verovio-toolkit-wasm.js
+                    docker rm -f dummy
             -
                 name: Commit changes
                 run: |
