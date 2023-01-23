@@ -16,11 +16,10 @@ jobs:
             -
                 name: Checkout
                 uses: actions/checkout@v3
-                with:
-                  ref: gh-pages
             -
                 name: Copy wasm
                 run: |
+                    git checkout gh-pages
                     docker create --name dummy verovio-script
                     docker cp dummy:/app/verovio-toolkit-wasm.js scripts/verovio-toolkit-wasm.js
                     docker rm -f dummy
