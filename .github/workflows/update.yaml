@@ -20,9 +20,6 @@ jobs:
                   ref: gh-pages
             -
                 name: Copy wasm
-                run: docker build -t verovio-script -f Dockerfile .
-            -
-                name: Copy wasm
                 run: |
                     docker create --name dummy verovio-script
                     docker cp dummy:/app/verovio-toolkit-wasm.js scripts/verovio-toolkit-wasm.js
