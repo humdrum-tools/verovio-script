@@ -32,9 +32,9 @@ function verovioCalls() {
 				bangIndex = i;
 			}
 			for (let j=0; j<hum.length; j++) {
-				}
 				if (hum[i][j].match(regex)) {
 					exinterpIndex = i;
+					break;
 				}
 			}
 		}
