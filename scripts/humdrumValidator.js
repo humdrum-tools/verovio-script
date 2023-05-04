@@ -9,12 +9,13 @@
 
 function validateHumdrum_Process(hum, onError, onWarning) {
 	
-	const regex = /\*\*[A-Za-z0-9_]/;
+	const regex = /^\*\*[A-Za-z0-9_]/;
 	let foundExinterp = false;
 	for (let i=0; i<hum.length; i++) {
 		for (let j=0; j<hum[i].length; j++) {
 			if (hum[i][j].search(regex)) {
 				foundExinterp = true;
+				console.warn("FOUND EXINTERP", hum[i][j]);
 				break;
 			}
 		}
