@@ -13,7 +13,7 @@ function validateHumdrum_Process(hum, onError, onWarning) {
 	let foundExinterp = false;
 	for (let i=0; i<hum.length; i++) {
 		for (let j=0; j<hum[i].length; j++) {
-			if (hum[i][j].search(regex)) {
+			if (hum[i][j].match(regex)) {
 				foundExinterp = true;
 				console.warn("FOUND EXINTERP", hum[i][j]);
 				break;
