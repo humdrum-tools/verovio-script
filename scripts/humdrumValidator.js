@@ -10,7 +10,7 @@
 function validateHumdrum_Process(hum, onError, onWarning) {
 	
 	const regex = /\*\*[A-Za-z0-9_]/;
-	if (!hum.splice(0, 2000).search(regex)) {
+	if (!hum.slice(0, 2000).search(regex)) {
 		// Don't check data if there is no exclusive interpretation
 		return;
 	}
