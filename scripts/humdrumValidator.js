@@ -22,8 +22,11 @@ function validateHumdrum_Process(hum, onError, onWarning) {
 	if (!foundExinterp) {
 		// Don't return an error if there is no exclusive interpretation
 		if (!onWarning("No exclusive interpretation found", 0, 0)) {
+			console.warn("No exclusive interpretation found");
 			return true;
 		}
+	} else {
+		console.warn("Exclusive interpretation found");
 	}
 
 	var current_no_of_spines = 0;
