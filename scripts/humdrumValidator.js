@@ -9,6 +9,7 @@
 
 function validateHumdrum_Process(hum, onError, onWarning) {
 	
+console.warn("HUM", hum);
 	const regex = /\*\*[A-Za-z0-9_]/;
 	let foundExinterp = false;
 	for (let i=0; i<hum.length; i++) {
@@ -18,8 +19,10 @@ function validateHumdrum_Process(hum, onError, onWarning) {
 		}
 	}
 	if (!foundExinterp) {
-		// Don't check data if there is no exclusive interpretation
-		return;
+		// Don't return an error if there is no exclusive interpretation
+		if (!onWarning("No exclusive interpretation found", 0, 0)) {
+			return;
+		}
 	}
 
 	var current_no_of_spines = 0;
