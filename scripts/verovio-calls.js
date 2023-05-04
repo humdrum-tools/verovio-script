@@ -31,7 +31,7 @@ function verovioCalls() {
 			if ((hum[i].length > 0) &&(hum[i][0] === "!")) {
 				bangIndex = i;
 			}
-			for (let j=0; j<hum.length; j++) {
+			for (let j=0; j<hum[i].length; j++) {
 				if (hum[i][j].match(regex)) {
 					exinterpIndex = i;
 					break;
