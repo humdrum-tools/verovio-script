@@ -38,7 +38,7 @@ function verovioCalls() {
 				}
 			}
 		}
-		if (excerpIndex < 0) {
+		if (exinterpIndex < 0) {
          // Data does not have exinterp, so ignore (handled in verovio).
 			return true;
 		}
