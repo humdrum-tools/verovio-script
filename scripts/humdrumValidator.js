@@ -22,7 +22,7 @@ function validateHumdrum_Process(hum, onError, onWarning) {
 	if (!foundExinterp) {
 		// Don't return an error if there is no exclusive interpretation
 		if (!onWarning("No exclusive interpretation found", 0, 0)) {
-			return;
+			return true;
 		}
 	}
 
