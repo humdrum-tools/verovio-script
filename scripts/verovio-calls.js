@@ -93,14 +93,14 @@ function verovioCalls() {
 			if (!force) {
 				if (opts.inputFrom === "humdrum") {
 					const regex = /\*\*[A-Za-z0-9_]/;
+					// do not try to validate if exclusive interpretation mising
 					if (data.slice(0, 1000).search(regex)) {
-                  // do not try to validate if exclusive interpretation mising
 						this.validate(data);
 					}
 				} else if (opts.inputFrom === "auto") {
 					const regex = /\*\*[A-Za-z0-9_]/;
+					// do not try to validate if exclusive interpretation mising
 					if (data.slice(0, 1000).search(regex)) {
-                  // do not try to validate if exclusive interpretation mising
 						this.validate(data);
 					}
 				}

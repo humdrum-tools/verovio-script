@@ -8,6 +8,13 @@
 
 
 function validateHumdrum_Process(hum, onError, onWarning) {
+	
+	const regex = /\*\*[A-Za-z0-9_]/;
+	if (!hum.splice(0, 2000).search(regex)) {
+		// Don't check data if there is no exclusive interpretation
+		return;
+	}
+
 	var current_no_of_spines = 0;
 	var first_interpretation_yet = false;
 	var new_path = false;
