@@ -13,6 +13,7 @@ function verovioCalls() {
 
 	this.validate = function (data) {
 		if (data.charAt(0) == "<") {
+			// Don't try to validate XML data.
 			return true;
 		}
 		// Maybe filter out ESaC and MuseData here
@@ -20,7 +21,41 @@ function verovioCalls() {
 		var error = false,
 		// [20190613: Allow multiple tabs between spine fields]
 		// [20200914: Allow Windows newlines]
-		hum = data.split(/\r\n|\n|\r/).map(function (l) { return l.split(/\t+/) });
+		hum = data.split(/\r\n|\n|\r/).map(function (line) { return line.split(/\t+/) });
+
+		// Don't validate simple errors such as "*" while typing "**kern".
+		let exinterpIndex = -1;
+		let bangIndex = -1;
+		const regex = /^\*\*[A-Za-z0-9_]/;
+		for (let i=0; i<hum.length; i++) {
+			if ((hum[i].length > 0) &&(hum[i][0] === "!")) {
+				bangIndex = i;
+			}
+			for (let j=0; j<hum.length; j++) {
+				}
+				if (hum[i][j].match(regex)) {
+					exinterpIndex = i;
+				}
+			}
+		}
+		if (excerpLine < 0) {
+         // Data does not have exinterp, so ignore (handled in verovio).
+			return true;
+		}
+
+		if (opts.inputFrom === "humdrum") {
+			// do not try to validate if exclusive interpretation mising
+			if (data.slice(0, 1000).search(regex)) {
+				this.validate(data);
+			}
+		} else if (opts.inputFrom === "auto") {
+			const regex = /\*\*[A-Za-z0-9_]/;
+			// do not try to validate if exclusive interpretation mising
+			if (data.slice(0, 1000).search(regex)) {
+				this.validate(data);
+			}
+		}
+
 		validateHumdrum_Process(hum, function () {
 			//break on error
 			error = true;
@@ -84,6 +119,7 @@ function verovioCalls() {
 	//
 
 	this.renderData = function (opts, data, page, force) {
+
 		if (opts.inputFrom !== "musedata") {
 			// do not validate Musedata as Humdrum
 			// (maybe add other input formats here, or
@@ -91,19 +127,7 @@ function verovioCalls() {
 			// XML formats are filtered out in this.validate()
 			// already.
 			if (!force) {
-				if (opts.inputFrom === "humdrum") {
-					const regex = /\*\*[A-Za-z0-9_]/;
-					// do not try to validate if exclusive interpretation mising
-					if (data.slice(0, 1000).search(regex)) {
-						this.validate(data);
-					}
-				} else if (opts.inputFrom === "auto") {
-					const regex = /\*\*[A-Za-z0-9_]/;
-					// do not try to validate if exclusive interpretation mising
-					if (data.slice(0, 1000).search(regex)) {
-						this.validate(data);
-					}
-				}
+				this.validate(data);
 			}
 		}
 		page = page || this.page;
