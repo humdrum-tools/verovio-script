@@ -84,7 +84,6 @@ function verovioCalls() {
 	//
 
 	this.renderData = function (opts, data, page, force) {
-console.log("RENDERDATA", data, opts);
 		if (opts.inputFrom !== "musedata") {
 			// do not validate Musedata as Humdrum
 			// (maybe add other input formats here, or
@@ -92,7 +91,19 @@ console.log("RENDERDATA", data, opts);
 			// XML formats are filtered out in this.validate()
 			// already.
 			if (!force) {
-				this.validate(data);
+				if (opts.inputFrom === "humdrum") {
+					const regex = /\*\*[A-Za-z0-9_]/;
+					if (data.slice(0, 1000).search(regex)) {
+                  // do not try to validate if exclusive interpretation mising
+						this.validate(data);
+					}
+				} else if (opts.inputFrom === "auto") {
+					const regex = /\*\*[A-Za-z0-9_]/;
+					if (data.slice(0, 1000).search(regex)) {
+                  // do not try to validate if exclusive interpretation mising
+						this.validate(data);
+					}
+				}
 			}
 		}
 		page = page || this.page;
