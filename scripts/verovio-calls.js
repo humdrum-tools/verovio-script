@@ -106,7 +106,6 @@ function verovioCalls() {
 	//
 
 	this.renderData = function (opts, data, page, force) {
-console.warn("RENDERDATA", opts, data, page, force);
 
 		if (opts.inputFrom !== "musedata") {
 			// do not validate Musedata as Humdrum
@@ -122,36 +121,24 @@ console.warn("RENDERDATA", opts, data, page, force);
 		if (page == 0) {
 			page = 1;
 		}
-console.log("GOT HERE AAA");
 		this.vrvToolkit.resetOptions();
-console.log("GOT HERE BBB");
 		cleanopts = cleanOptions(data, opts);
-console.log("GOT HERE CCC");
 		this.vrvToolkit.setOptions(cleanopts);
-console.log("GOT HERE DDD", data);
 		this.vrvToolkit.loadData(data);
-console.log("GOT HERE EEE");
 		this.pageCount = this.vrvToolkit.getPageCount();
-console.log("GOT HERE FFF");
 		if (this.pageCount === 0) {
 			throw ("PAGE COUNT IS ZERO:", this.vrvToolkit.getLog());
 		} else {
-console.log("GOT HERE GGG");
 			let svg;
 			if (page) {
 				if (page > this.pageCount) {
 					page = 1;
 					this.page = 1;
 				}
-console.log("GOT HERE HHH");
 				svg = this.vrvToolkit.renderToSVG(page, {});
-console.log("GOT HERE III");
 			} else {
-console.log("GOT HERE JJJ");
             this.vrvToolkit.resetOptions();
-console.log("GOT HERE KKK");
 				svg = this.vrvToolkit.renderData(data, cleanopts);
-console.log("GOT HERE LLL");
 			};
 			this.page = page;
 			this.humdrumOutput = "";
@@ -161,9 +148,7 @@ console.log("GOT HERE LLL");
 				// data before it was converted to MEI data.  This function
 				// should not be called if input is MEI data (and probably
 				// not MusicXML data either).
-console.log("GOT HERE MMM");
 				this.humdrumOutput = this.vrvToolkit.getHumdrum();
-console.log("GOT HERE NNN");
 			}
 			return svg;
 		};
