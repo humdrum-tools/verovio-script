@@ -106,6 +106,7 @@ function verovioCalls() {
 	//
 
 	this.renderData = function (opts, data, page, force) {
+console.warn("RENDERDATA", opts, data, page, force);
 
 		if (opts.inputFrom !== "musedata") {
 			// do not validate Musedata as Humdrum
