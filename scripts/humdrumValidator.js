@@ -15,7 +15,6 @@ function validateHumdrum_Process(hum, onError, onWarning) {
 		for (let j=0; j<hum[i].length; j++) {
 			if (hum[i][j].match(regex)) {
 				foundExinterp = true;
-				console.warn("FOUND EXINTERP", hum[i][j]);
 				break;
 			}
 		}
@@ -26,8 +25,6 @@ function validateHumdrum_Process(hum, onError, onWarning) {
 			console.warn("No exclusive interpretation found");
 			return true;
 		}
-	} else {
-		console.warn("Exclusive interpretation found");
 	}
 
 	var current_no_of_spines = 0;
