@@ -128,7 +128,7 @@ console.log("GOT HERE BBB");
 		cleanopts = cleanOptions(data, opts);
 console.log("GOT HERE CCC");
 		this.vrvToolkit.setOptions(cleanopts);
-console.log("GOT HERE DDD");
+console.log("GOT HERE DDD", data);
 		this.vrvToolkit.loadData(data);
 console.log("GOT HERE EEE");
 		this.pageCount = this.vrvToolkit.getPageCount();
