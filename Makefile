@@ -22,9 +22,12 @@ compile-wasm:
 	&& cp build/verovio-toolkit-hum.js ../../vhv/verovio-humdrum-viewer/scripts/local/verovio-toolkit-wasm.js)
 
 copy:
-	(cd ../verovio/emscripten && cp build/verovio-toolkit-hum.js ../../verovio-script/scripts/verovio-toolkit-wasm.js && cp build/verovio-toolkit-hum.js ../../verovio-humdrum-viewer/scripts/local/verovio-toolkit-wasm.js)
+	(cd ../verovio/emscripten && cp build/verovio-toolkit-hum.js ../../vhv/verovio-script/scripts/verovio-toolkit-wasm.js && cp build/verovio-toolkit-hum.js ../../vhv/verovio-humdrum-viewer/scripts/local/verovio-toolkit-wasm.js)
 
 upload: update
 update:
 	git commit -am "Update"
 	git push
+
+
+
