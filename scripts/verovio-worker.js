@@ -14,6 +14,8 @@ For more information about web workers:
 
 {% endcomment %}
 
+console.error("IN VEROVIO WORKER");
+
 self.methods = null;
 
 {% if site.local == "true" %}
