@@ -1,6 +1,7 @@
 
 # EMSDK = /usr/local/e/emsdk
-EMSDK = ~/git-cloud/emsdk
+# EMSDK = ~/git-cloud/emsdk
+EMSDK = ~/Desktop/Code/emsdk
 
 all: pull compile update
 
